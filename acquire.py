@@ -20,10 +20,10 @@ def get_data():
                 cust.`Customer Name`,
                 reg.`Region Name`
             FROM orders ord
-                JOIN categories cat USING(`Category ID`)
-                JOIN products prod USING(`Product ID`)
-                JOIN customers cust USING(`Customer ID`)
-                JOIN regions reg USING(`Region ID`)
+                LEFT JOIN categories cat USING(`Category ID`)
+                LEFT JOIN products prod USING(`Product ID`)
+                LEFT JOIN customers cust USING(`Customer ID`)
+                LEFT JOIN regions reg USING(`Region ID`)
         '''
     print('No local file exists\nReading from SQL database...')
     # query the database and return the resulting table as a pandas dataframe
