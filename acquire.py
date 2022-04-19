@@ -1,3 +1,6 @@
+import env
+from imports import *
+
 def get_data():
     '''
     reads superstore data from codeup mysql database, returns joined 
