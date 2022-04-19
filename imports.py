@@ -15,8 +15,8 @@ import pandas as pd
 from scipy import stats
 
 # sci-kit-learn modules
-# from sklearnex import patch_sklearn
-# patch_sklearn()
+from sklearnex import patch_sklearn
+patch_sklearn()
 from sklearn.cluster import KMeans
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_selection import SelectKBest, RFE, f_regression
@@ -40,5 +40,5 @@ import seaborn as sns
 
 # state properties
 np.random.seed(123)
-pd.set_option("display.max_columns", None)
-pd.set_option("display.max_rows", None)
+pd.set_option("display.max_columns", 100)
+pd.set_option("display.max_rows", 100)
