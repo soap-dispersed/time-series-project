@@ -1,4 +1,3 @@
-import env
 from imports import *
 
 def get_data():
