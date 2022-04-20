@@ -1,6 +1,4 @@
 # env
-import sys
-sys.path.insert(0, '/Users/hinzlehome/codeup-data-science/time-series-exercises/.env/')
 from env import get_db_url
 
 # local-host
@@ -40,5 +38,5 @@ import seaborn as sns
 
 # state properties
 np.random.seed(123)
-pd.set_option("display.max_columns", None)
-pd.set_option("display.max_rows", None)
+pd.set_option("display.max_columns", 100)
+pd.set_option("display.max_rows", 100)
