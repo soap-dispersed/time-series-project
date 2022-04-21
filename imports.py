@@ -10,7 +10,9 @@ import datetime
 import math
 import numpy as np
 import pandas as pd
+import statsmodels.api as sm
 from scipy import stats
+
 
 # sci-kit-learn modules
 from sklearnex import patch_sklearn
