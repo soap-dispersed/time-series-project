@@ -1,6 +1,17 @@
 from imports import *
 
 def prep_data(df):
+    '''
+    takes in the dataframe of data obtained from teh superstore database.
+    cleans and prepares the dataframe by doing the following:
+    - renames columns for convenience
+    - casts date columns as datetime types
+    - resets the dataframe index as a datetime (order_date)
+    - adds engineered features:
+        - profit-per-product
+        - sales-per-product
+    returns the cleaned dataframe.
+    '''
     
     # rename columns: lower case, remove space
     for col in df.columns:
@@ -18,11 +29,6 @@ def prep_data(df):
     
     # add sales per product
     df['sales_per_product'] = df.sales / df.quantity
-
-    # add month column
-    df['month'] = df.index.month
-    # add day column
-    df['weekday'] = (df.index.weekday.astype(str) + '-' + df.index.strftime('%a'))
     
     return df
 
@@ -69,4 +75,14 @@ def remove_outliers(train, test, k, col_list):
     print(f'train\t n = {train.shape[0]}')
     print(f'test\t n = {test.shape[0]}')
 
+    return train, test
+
+def split_data(df):
+    '''
+    Splits data into train and test based on year.
+    '''
+    train = df['2014':'2016']
+    test = df['2017']
+    print('train n=', len(train))
+    print('test n=', len(test))
     return train, test
