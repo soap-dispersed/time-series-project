@@ -18,6 +18,11 @@ def prep_data(df):
     
     # add sales per product
     df['sales_per_product'] = df.sales / df.quantity
+
+    # add month column
+    df['month'] = df.index.month
+    # add day column
+    df['weekday'] = (df.index.weekday.astype(str) + '-' + df.index.strftime('%a'))
     
     return df
 
@@ -27,4 +32,41 @@ def split_data(df):
     '''
     train = df['2014':'2016']
     test = df['2017']
+    return train, test
+
+def remove_outliers(train, test, k, col_list):
+    ''' 
+    This function takes in a dataset split into two sample dataframes: train and test.
+    It calculates an outlier range based on a given value for k, using the interquartile range 
+    from the train sample. It then applies that outlier range to each of the samples, removing
+    outliers from a given list of feature columns. The train, and test dataframes 
+    are returned, in that order. 
+    '''
+    # Create a column that will label our rows as containing an outlier value or not
+    train['outlier'] = False
+    test['outlier'] = False
+    for col in col_list:
+
+        q1, q3 = train[col].quantile([.25, .75])  # get quartiles
+        
+        iqr = q3 - q1   # calculate interquartile range
+        
+        upper_bound = q3 + k * iqr   # get upper bound
+        lower_bound = q1 - k * iqr   # get lower bound
+
+        # update the outlier label any time that the value is outside of boundaries
+        train['outlier'] = np.where(((train[col] < lower_bound) | (train[col] > upper_bound)) & (train.outlier == False), True, train.outlier)
+        test['outlier'] = np.where(((test[col] < lower_bound) | (test[col] > upper_bound)) & (test.outlier == False), True, test.outlier)
+
+    # remove observations with the outlier label in each of the three samples
+    train = train[train.outlier == False]
+    train = train.drop(columns=['outlier'])
+
+    test = test[test.outlier == False]
+    test = test.drop(columns=['outlier'])
+
+    # print the remaining 
+    print(f'train\t n = {train.shape[0]}')
+    print(f'test\t n = {test.shape[0]}')
+
     return train, test
