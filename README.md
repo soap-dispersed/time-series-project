@@ -21,14 +21,6 @@ Maximize effectiveness of  product line expansion by  identifying the product li
 1. the highest profitability, and
 1. the largest amount of room for growth in terms of sales volume.
 
-Method:
-
-- Imports used can be found in `imports.py`. (Please ensure libraries are installed for package support).
-- Acquire data using MySQL. Query codeup db.
-- Prepare data using time-analysis techniques which frames the data in terms of date of order.
-- Explore data using the keen eyes of weathered data scientist and primier tools such as Pandas, Python, Statsmodels, etc...
-- Model qualitative predictions based on current trend forecasting.
-
 ### Initial Questions
 
 - Which product line should we expand?
@@ -61,8 +53,8 @@ sub-category          |  Subcategory the product belongs to  |  object    |
 customer_name         |  Name of customer   | object     |
 product_name          |  Name of product  |  object    |
 region_name           |  General area of US where order was placed: 'Central', 'South', 'East', 'West'  |  object    |
-days_to_ship *        |  Number of days from order_date to ship_date  |  int64    |
-* | feature engineered | |
+profit_per_item *     |  Profit margin per item  |  float64    |
+| * | feature engineered | |
 
 ### Steps to Reproduce
 
@@ -72,13 +64,21 @@ days_to_ship *        |  Number of days from order_date to ship_date  |  int64  
 
 ### The Plan
 
+Method:
+
+- Imports used can be found in `imports.py`. (Please ensure libraries are installed for package support).
+- Acquire data using MySQL. Query codeup db.
+- Prepare data using time-analysis techniques which frames the data in terms of date of order.
+- Explore data using the keen eyes of weathered data scientist and primier tools such as Pandas, Python, Statsmodels, etc...
+- Model qualitative predictions based on current trend forecasting.
+
 1. Acquisition
 
-- In this stage, I obtained Superstore customer data by querying the Codeup MySQL database hosted at data.codeup.com. The original source of this data was db.codeup.com.
+- In this stage, we obtained Superstore customer data by querying the Codeup MySQL database hosted at data.codeup.com. The original source of this data was db.codeup.com.
 
 2. Preparation
 
-- I cleaned and prepped the data by:
+- We cleaned and prepped the data by:
     - removing all observations that included null values
     - renaming columns for readability
     - changing data types where appropriate
@@ -86,37 +86,36 @@ days_to_ship *        |  Number of days from order_date to ship_date  |  int64  
 
 3. Exploration
 
-- I conducted an initial exploration of the data by examing relationships between each of the features and the treated profit as a target
+- We conducted an initial exploration of the data by examing relationships between each of the features and the treated profit as a target
 - then explored further, to answer the initial questions posed above
 
 4. Modeling
 
-- Using varying combinations of features, I tested multiple Ordinary Least Squares (OLS) Regression models. 
-- I then chose the model which performed with the smallest error on unseen data.
+- Using varying combinations of features, I tested multiple markets for maximum ROI. 
+- We then chose the model which performed with the smallest error on unseen data.
 
 ### How did we do?
 
-We expect that our model will typically predict a value that is within approximately 
+We expect that our recommendation will yeild profits that are generally 63% higher than previous profits.
 
-### Key Findings:
+### Key Findings
 
-We determined that the following factors are significant drivers ____:
-- number of ___
-- number of ___
+We determined that the technology market has the best oppurtunity for expansion due to:
 
-### Recommendations:
+- highest profits per item
+- lowest sales volume
 
-Git money! 
+### Recommendations
 
-### Next Steps: 
+Profits on technology sales are higher than other markets. Additionally, sales volume is among the lowest categories. Based on profitability and projected room for growth, expansion efforts should be targeted on the technology sector.
 
-Given more time, I would examine additional features as drivers of home value. Some factors that I would expect to have significant influence include:
+### Next Steps
 
-    - ball a lot
-    - skrrt, skrrrt
-    - the size of the garage
-    - all day, e'ery day
-    
-These features could be explored directly, through visualization and statistical testing, or they could be identified through automated features selection techniques such as Recursive Feature Elimination. 
+Given more time, I would examine additional features as drivers of product demand. Some factors that I would expect to have significant influence include:
 
-Additionally, since customers are different, I might expect models to perform better which individually focus on a distinct groups.
+    - regional effects on profits
+    - regional effects on profits per market
+    - explore office supplies as a secondary contender for expansion
+    - predict 2018 values using time-series-analysis
+
+These features could be explored directly, through visualization and statistical testing, or they could be identified through automated features selection techniques such as Recursive Feature Elimination.
