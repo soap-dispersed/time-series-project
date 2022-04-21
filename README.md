@@ -1,14 +1,10 @@
 # Time Series Project
 
-## About the Project 
+## About the Project
 
-The goal is to make a reccomendation to VP of Product as to which product line would be best to invest effort into expanding.
-Through thoughtful analysis, we would like to conclude on whether there is a product category that might be particularly profitable, stands out in terms of sales volume, and how different customer segments respond to each, respectively.
+The goal is to recommend a product category to VP of Product. Through thoughtful analysis, we would like to conclude on whether there is a product category that might be particularly profitable and stands out in terms of sales volume, and how different customer segments respond to each, respectively.
 
 ### Project Description
-
-
-
 
 ### Project Goals
 
