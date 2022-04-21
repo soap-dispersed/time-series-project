@@ -2,11 +2,12 @@
 
 ## About the Project 
 
-Answering a stakeholder question. 
+The goal is to make a reccomendation to VP of Product as to which product line would be best to invest effort into expanding.
+Through thoughtful analysis, we would like to conclude on whether there is a product category that might be particularly profitable, stands out in terms of sales volume, and how different customer segments respond to each, respectively.
 
 ### Project Description
 
-Dolla, dolla, dolla bills, yall.
+
 
 
 ### Project Goals
@@ -20,29 +21,44 @@ Answer stakeholder question.
 
 ### Initial Questions
 
-- Is there a significant correlation between 
+- Which product line should we expand?
 
-- Is there a significant correlation between 
+- Is there a product category that is particularly profitable for us?
 
-- Is there a significant correlation between 
+- Does one or another stand out in terms of sales volume?
 
-- Which has a greater effect on _____ values,
-
-- ____ : Could this be a useful categorical feature? 
-
+- Does this vary by customer segment?
 
 ### Data Dictionary
 
-| Variable          | Meaning                                                                   | values          |
-| -----------       | -----------                                                               | -----------     |
-|    order_id      | The order number from the order              | N/A |
-
+|  Variables             |    Definition                              |    DataType             |
+| :--------------------:   | :----------------------------------------: | :--------------------: |
+order_date (index)    |  Date order was placed                          |  datetime64[ns]    |
+order_id              |  Order identifier assigned to each product name for each order | object |
+ship_date             |  Date order was shipped                         | datetime64[ns]       |
+ship_mode             |  Mode of shipping for delivery:  'Standard Class', 'First Class', 'Second Class', 'Same Day'  | object      |
+segment               |  Customer type: Consumer, Cooperate, Home Office  |  object     |
+country               |  Country to which shipment was delivered: 'United States'  |    object   |
+city                  |  City to which shipment was delivered  |  object    |
+state                 |  State to which shipment was delivered  |  object    |
+postal_code           |  Postal code to which shipment was delivered   |  float64   |
+sales                 |  Sale total for product id * quantity in given order ($USD)  | float64     |
+quantity              |  Total number of specified product ordered  | float64     |
+discount              |  Percentage of discount applied to order in decimal form  | float64     |
+profit                |  Sales - Product Cost  | float64     |
+category              |  Category the product belongs to  | object    |
+sub-category          |  Subcategory the product belongs to  |  object    |
+customer_name         |  Name of customer   | object     |
+product_name          |  Name of product  |  object    |
+region_name           |  General area of US where order was placed: 'Central', 'South', 'East', 'West'  |  object    |
+days_to_ship *        |  Number of days from order_date to ship_date  |  int64    |
+* feature engineered
 
 ### Steps to Reproduce
 
 1. You will need an env.py file that contains the hostname, username and password of the mySQL database that contains the Superstore database. The env.py should also contain a function named get_db_url() that establishes the string value of the database url. Store that env file locally in the repository. 
 2. clone my repo (including the acquire.py, prepare.py, explore.py, and model.py modules) (confirm .gitignore is hiding your env.py file)
-3. libraries used are pandas, matplotlib, seaborn, numpy, sklearn, math. 
+3. libraries used are pandas, matplotlib, seaborn, numpy, sklearn, math.
 
 ### The Plan
 
@@ -53,9 +69,9 @@ Answer stakeholder question.
     - removing all observations that included null values
     - renaming columns for readability
     - changing data types where appropriate
-    - adding a feature: age (represents age of the property in years)
+    - adding a feature: profit_per_item
 3. Exploration
-- I conducted an initial exploration of the data by examing relationships between each of the potential features and the target
+- I conducted an initial exploration of the data by examing relationships between each of the features and the treated profit as a target
 - then explored further, to answer the initial questions posed above
 4. Modeling 
 - Using varying combinations of features, I tested multiple Ordinary Least Squares (OLS) Regression models. 
