@@ -14,22 +14,19 @@ CEO - Superstore
 ### Project Goals
 
 Answer the VP of Products' question:
-    - which product line should we expand.
 
-Maximize effectiveness of  product line expansion by  identifying the product line with:
+    which product line should we expand?
+
+Maximize effectiveness of product line expansion by identifying the product line with:
 
 1. the highest profitability, and
 1. the largest amount of room for growth in terms of sales volume.
 
 ### Initial Questions
 
-- Which product line should we expand?
+- Is there a product category that has significantly higher profit margins than the others?
 
-- Is there a product category that is particularly profitable for us?
-
-- Does one or another product line stand out in terms of sales volume?
-
-- Does this vary by customer segment?
+- Is there a product category that has significantly lower sales volume than the others?
 
 ### Data Dictionary
 
@@ -67,9 +64,9 @@ profit_per_item *     |  Profit margin per item  |  float64    |
 Method:
 
 - Imports used can be found in `imports.py`. (Please ensure libraries are installed for package support).
-- Acquire data using MySQL. Query codeup db.
-- Prepare data using time-analysis techniques which frames the data in terms of date of order.
-- Explore data using the keen eyes of weathered data scientist and primier tools such as Pandas, Python, Statsmodels, etc...
+- Acquire data using SQL. Query Codeup MySQL database.
+- Prepare data using time-analysis techniques which frames the data in terms of date of order as the index.
+- Explore data using the keen eyes of weathered data scientist and premier tools such as Pandas, Python, Statsmodels, etc...
 - Model qualitative predictions based on current trend forecasting.
 
 1. Acquisition
@@ -83,20 +80,24 @@ Method:
     - renaming columns for readability
     - changing data types where appropriate
     - adding a feature: profit_per_item
+    - adding a feature: sales_per_item
 
 3. Exploration
 
-- We conducted an initial exploration of the data by examing relationships between each of the features and the treated profit as a target
+- We conducted an initial exploration of the data by examing relationships between each of the features and treated profit as a target
 - then explored further, to answer the initial questions posed above
+- findings:
+    - The Technology product category has higher profit margins than either Office Supplies or Furniture, yet has a much lower total sales volume. We expect that this means there is both high profit potential and room for growth in this category. 
 
-4. Modeling
+4. Forecasting
 
-- Using varying combinations of features, I tested multiple markets for maximum ROI. 
-- We then chose the model which performed with the smallest error on unseen data.
+- We used data from 2014 - 2016 to determine which product category has the most potential for expansion, then modeled what might have happened if we expanded this category in 2017, and compared those projected profits to the actual 2017 profits. 
 
 ### How did we do?
 
-We expect that our recommendation will yeild profits that are generally 63% higher than previous profits.
+If we had increased technology sales as suggested for the year 2017, it likely would have resulted in an average **monthly increase in profits of 63%**, yielding a **96% increase in total profit for the year**. 
+
+Therefore, we strongly recommend conducting a similar analysis to determine which product line to expand in future years.
 
 ### Key Findings
 
