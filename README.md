@@ -2,19 +2,19 @@
 
 ## About the Project
 
-The goal is to recommend a product line to the VP of Product fit for expansion. Through thoughtful analysis, we would like to explore if there is a product category that might be particularly profitable and stands out in terms of sales volume. If so, we will attempt to forecast potential gains in profit.
+The goal is to recommend a product line fit for expansion to the VP of Product. Through thoughtful analysis, we would like to explore if there is a product category that might be particularly profitable and stands out in terms of sales volume. If so, we will attempt to forecast potential gains in profit.
 
 ### Project Description
 
 > "Superstore's mission is to be the preferred supplier of workspace solutions; from home-office to cooperate office, we aspire to be the leading expert in workplace solutions for everyone! For this reason, it is important to know whether we are reaching everyone with our products and services. This project will use exploration, modeling, and statistics to identify the best product line for Superstore in regards to expansion efforts and will provide recommendations on where to shift our company focus in order to maintain happy loyal customers while continuing to grow our product base."
 
-Rachel Robbins-Mayweather  
-CEO - Superstore
+Rachel Robbins-Mayhill  
+CEO
 
 ### Project Goals
 
 Answer the VP of Products' question:
-    - which product line should we expand.
+    - which product line should we expand?
 
 Maximize effectiveness of  product line expansion by  identifying the product line with:
 
@@ -58,7 +58,7 @@ profit_per_item *     |  Profit margin per item  |  float64    |
 
 ### Steps to Reproduce
 
-1. You will need an env.py file that contains the hostname, username and password of the mySQL database that contains the Superstore database. The env.py should also contain a function named get_db_url() that establishes the string value of the database url. Store that env file locally in the repository. 
+1. You will need an env.py file that contains the hostname, username and password of the mySQL database that contains the Superstore database. The env.py should also contain a function named get_db_url() that establishes the string value of the database url. Store that env file locally in the repository.
 2. clone my repo (including the acquire.py, prepare.py, explore.py, and model.py modules) (confirm .gitignore is hiding your env.py file)
 3. libraries used are pandas, matplotlib, seaborn, numpy, sklearn, math.
 

@@ -1,3 +1,8 @@
+'''
+this module pulls the superstore dataframe using a mysql query from the codeup db over mysql+pymysql protocol. creds saved in env. check .gitignore for security. 
+'''
+
+
 from imports import *
 
 def get_data():

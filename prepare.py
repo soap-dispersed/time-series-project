@@ -1,3 +1,7 @@
+'''
+this module takes in the superstore dataframe and returns tidy data. there are multiple options for wrangling your data.
+'''
+
 from imports import *
 
 def prep_data(df):
@@ -32,13 +36,6 @@ def prep_data(df):
     
     return df
 
-def split_data(df):
-    '''
-    Splits data into train and test based on year.
-    '''
-    train = df['2014':'2016']
-    test = df['2017']
-    return train, test
 
 def remove_outliers(train, test, k, col_list):
     ''' 
@@ -67,7 +64,7 @@ def remove_outliers(train, test, k, col_list):
     # remove observations with the outlier label in each of the three samples
     train = train[train.outlier == False]
     train = train.drop(columns=['outlier'])
-
+    
     test = test[test.outlier == False]
     test = test.drop(columns=['outlier'])
 
@@ -81,8 +78,11 @@ def split_data(df):
     '''
     Splits data into train and test based on year.
     '''
+    # set train df to acquire rows from 2014 to 2016
     train = df['2014':'2016']
+    # set test to last year of dataset
     test = df['2017']
+
     print('train n=', len(train))
     print('test n=', len(test))
     return train, test
