@@ -90,15 +90,16 @@ def total_profit_lineplot(projections):
     Based on projections dataframe.
     '''
     plt.figure(figsize=(12,8))
-    sns.lineplot(data=projections, x=projections.index, y='rolling_total_actual', 
-                 color='#707E00', label='Actual', lw=6)
-    sns.lineplot(data=projections, x=projections.index, y='rolling_total_projected', 
-                 color='#FFB000', label='Projected', lw=6)
+    sns.lineplot(data=profits, x=profits.index, y='rolling_total_actual', 
+                color='#FFB000', label='Actual', lw=6)
+    sns.lineplot(data=profits, x=profits.index, y='rolling_total_projected', 
+                color='#707E00', label='Projected', lw=6)
     plt.title('Total Profit 2017', fontsize=24, color='#002729')
     plt.ylabel('Total Profit', fontsize=18, color='#002729')
     plt.xlabel(None)
     plt.xticks(fontsize=14, color='#002729')
     plt.yticks(fontsize=14, color='#002729')
+    plt.legend(loc='upper left', fontsize=18)
     ax = plt.gca()
     ax.set_yticklabels([f'${tick:,.0f}' for tick in ax.get_yticks()])
     plt.savefig('fig_total_profit_2017.jpeg')
