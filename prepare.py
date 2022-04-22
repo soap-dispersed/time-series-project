@@ -82,7 +82,7 @@ def split_data(df):
     train = df['2014':'2016']
     # set test to last year of dataset
     test = df['2017']
-
+    # output the number of observations in each dataset
     print('train n=', len(train))
     print('test n=', len(test))
     return train, test
