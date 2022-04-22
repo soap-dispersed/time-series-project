@@ -6,10 +6,11 @@ The goal is to recommend a product line fit for expansion to the VP of Product. 
 
 ### Project Description
 
-> "Superstore's mission is to be the preferred supplier of workspace solutions; from home-office to cooperate office, we aspire to be the leading expert in workplace solutions for everyone! For this reason, it is important to know whether we are reaching everyone with our products and services. This project will use exploration, modeling, and statistics to identify the best product line for Superstore in regards to expansion efforts and will provide recommendations on where to shift our company focus in order to maintain happy loyal customers while continuing to grow our product base."
+> "Superstore's mission is to be the preferred supplier of workspace solutions; from home-office to corporate office, we aspire to be the leading expert in workplace solutions for everyone! 
+>- Rachel Robbins-Mayhill, Superstore CEO
 
-Rachel Robbins-Mayhill  
-CEO
+In addition, Superstore aims to be efficient in it's efforts to produce profit for shareholders. For this reason, we will explore how best to enhance profits by expanding product lines in one of our three categories: Office Supplies, Furniture, and Technology. To do this, we will analyze previous profits to find a category ripe for expansion, then use Time Series Analysis and Data Science techniques to project profits based on expansion in that category. 
+
 
 ### Project Goals
 
@@ -95,7 +96,7 @@ Method:
 
 ### How did we do?
 
-If we had increased technology sales as suggested for the year 2017, it likely would have resulted in an average **monthly increase in profits of 63%**, yielding a **96% increase in total profit for the year**. 
+If we had increased technology sales as suggested for the year 2017, we could have expected an average **monthly increase in profits of 63%**, yielding a **96% increase in total profit for the year**. 
 
 Therefore, we strongly recommend conducting a similar analysis to determine which product line to expand in future years.
 
@@ -112,11 +113,9 @@ Profits on technology sales are higher than other markets. Additionally, sales v
 
 ### Next Steps
 
-Given more time, I would examine additional features as drivers of product demand. Some factors that I would expect to have significant influence include:
+Given more time, we would like to:
 
-    - regional effects on profits
-    - regional effects on profits per market
-    - explore office supplies as a secondary contender for expansion
-    - predict 2018 values using time-series-analysis
-
-These features could be explored directly, through visualization and statistical testing, or they could be identified through automated features selection techniques such as Recursive Feature Elimination.
+- explore regional effects on profits
+- explore regional effects on profits per market category
+- explore office supplies as a secondary contender for expansion
+- use time-series-analysis to predict 2018 profits, both with and without implementing our recommendations
